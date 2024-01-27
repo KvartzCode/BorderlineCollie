@@ -7,40 +7,63 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] float moveSpeed = 5f;
+    [SerializeField] float moveSpeed = 5f;
 
-	[SerializeField] Animator animator;
+    [SerializeField] Animator animator;
 
-	Vector2 moveDirection;
+    private Interactable interactable;
+    Vector2 moveDirection;
 
+    public bool canMove = true;
 
     void Start()
     {
-		
+
     }
 
-	void Update()
-	{
-		transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-	}
+    void Update()
+    {
+        if(!canMove ) { return; }
 
-	#region Input Methods
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+    }
 
-	public void OnMove(InputValue input)
-	{
-		moveDirection = input.Get<Vector2>();
-		animator.SetFloat("Blend", moveDirection.magnitude);
-	}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Interactable>())
+        {
+            interactable = collision.GetComponent<Interactable>();
+        }
+    }
 
-	public void OnWhistle()
-	{
-		Debug.Log("WHISTLE!");
-	}
+    #region Input Methods
 
-	public void OnInteract()
-	{
-		Debug.Log("Interact Triggered");
-	}
+    public void OnMove(InputValue input)
+    {
+        if (!canMove) { return; }
 
-	#endregion
+        moveDirection = input.Get<Vector2>();
+        animator.SetFloat("Blend", moveDirection.magnitude);
+    }
+
+    public void OnWhistle()
+    {
+        if (!canMove) { return; }
+
+        Debug.Log("WHISTLE!");
+    }
+
+    public void OnInteract()
+    {
+        if (!canMove) { return; }
+
+        Debug.Log("Interact Triggered");
+
+        if(interactable != null )
+        {
+            interactable.Interact();
+        }
+    }
+
+    #endregion
 }
