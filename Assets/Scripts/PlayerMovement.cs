@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
 
-    [SerializeField] Animator animator;
+    [SerializeField] Animator headAnimator;
+    [SerializeField] Animator bodyAnimator;
+
 
     private Interactable interactable;
     Vector2 moveDirection;
@@ -18,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
+        canMove = true;
     }
 
     void Update()
@@ -36,6 +38,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+    public void GetScared()
+    {
+        headAnimator.SetTrigger("scared");
+    }
+    public void GetHappy()
+    {
+        headAnimator.SetTrigger("happy");
+    }
     #region Input Methods
 
     public void OnMove(InputValue input)
@@ -43,8 +54,9 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) { return; }
 
         moveDirection = input.Get<Vector2>();
-        animator.SetFloat("Blend", moveDirection.magnitude);
+        headAnimator.SetFloat("Blend", moveDirection.magnitude);
     }
+
 
     public void OnWhistle()
     {
