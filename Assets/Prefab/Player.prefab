@@ -257,7 +257,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
+<<<<<<< Updated upstream
   m_Sprite: {fileID: 21300000, guid: 5c4454a3225a0c2459aa7b2cb77cf0e1, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 9d44480108fca3240986304fa7a31eab, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -278,7 +282,7 @@ Animator:
   m_GameObject: {fileID: 5757049791321497919}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a99b77ac5dcc294ab30e69c71b22181, type: 2}
+  m_Controller: {fileID: 9100000, guid: b1ffeb96e29195c4cbd4d34c21161bc8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
