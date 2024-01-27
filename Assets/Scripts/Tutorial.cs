@@ -17,6 +17,8 @@ public class Tutorial : MonoBehaviour
     [SerializeField] GameObject hyena;
     [SerializeField] TextMeshProUGUI text;
 
+    private bool done;
+
     private void Start()
     {
         girl.GetComponent<PlayerMovement>().canMove = false;
@@ -110,8 +112,11 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
-        if (!interactable.canInteract)
+        if (!interactable.canInteract && !done)
         {
+            done = true;
+            girl.GetComponent<PlayerMovement>().canMove = false;
+            girl.GetComponent<PlayerMovement>().GetScared();
             hyena.SetActive(true);
             Invoke(nameof(SwitchScene), 3);
         }
