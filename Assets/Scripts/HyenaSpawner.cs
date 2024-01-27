@@ -33,7 +33,7 @@ public class HyenaSpawner : MonoBehaviour
     {
         Vector3 randomPosition = Random.insideUnitCircle * 60;
 
-        while (randomPosition.sqrMagnitude < 1000)
+        while (randomPosition.sqrMagnitude < 1500)
             randomPosition = Random.insideUnitCircle * 60;
 
         GameObject newHyenaBush = Instantiate(hyenaBushPrefab, player.transform.position + randomPosition, Quaternion.identity);
@@ -55,7 +55,7 @@ public class HyenaSpawner : MonoBehaviour
     private void MoveObject(GameObject objectToMove)
     {
         Vector3 randomPosition = Random.insideUnitCircle * 60;
-        while (randomPosition.sqrMagnitude < 1000)
+        while (randomPosition.sqrMagnitude < 1500)
             randomPosition = Random.insideUnitCircle * 60;
 
         objectToMove.transform.position = player.transform.position + randomPosition;
