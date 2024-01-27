@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     private Material defaultMat;
     [SerializeField] Material outlineMat;
     private SpriteRenderer sr;
+    public GameObject objectToSpawn = null;
     public bool canInteract = true;
 
     private void Start()
@@ -47,5 +48,9 @@ public class Interactable : MonoBehaviour
         SetOutline(false);
         canInteract = false;
         sr.sortingOrder = 5;
+
+        if (objectToSpawn == null) return;
+        if (objectToSpawn.GetComponent<Hyena>() != null) 
+            objectToSpawn.GetComponent<Hyena>().Activate();
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class CollieFollowPlayer : MonoBehaviour
 {
     public GameObject player;
-    public SpawnerSystem spawner;
 
     public bool followPlayer;
 
@@ -23,12 +22,10 @@ public class CollieFollowPlayer : MonoBehaviour
     {
         if(followPlayer)
         {
-            spawner.enabled = false;
             FollowPLayer();
         }
         else
         {
-            spawner.enabled = true;
         }
     }
 

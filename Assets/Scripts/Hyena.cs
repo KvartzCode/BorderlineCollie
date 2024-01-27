@@ -11,6 +11,8 @@ public enum HyenaState
 
 public class Hyena : MonoBehaviour
 {
+
+    GetScaredRange getScaredRange;
     public HyenaState state = HyenaState.Inactive;
     public SpriteRenderer bodySprite;
     public SpriteRenderer headSprite;
@@ -29,10 +31,12 @@ public class Hyena : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        getScaredRange = player.GetComponent<GetScaredRange>();
+        getScaredRange.AddHyena(this);
         rb2d = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
-        //bodySprite.enabled = headSprite.enabled = false;
-        //collider2d.enabled = false;
+        bodySprite.enabled = headSprite.enabled = false;
+        collider2d.enabled = false;
     }
 
     void Update()
@@ -60,7 +64,7 @@ public class Hyena : MonoBehaviour
             case HyenaState.Retreating:
                 rb2d.velocity = direction.normalized * -6;
                 animator.SetFloat("Blend", 0.8f);
-                if (direction.sqrMagnitude > 200)
+                if (direction.sqrMagnitude > 900)
                 {
                     rb2d.velocity = Vector2.zero;
                     state = HyenaState.Lurking;
@@ -72,7 +76,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Lurking:
-                Vector3 randomPosition = Random.insideUnitCircle.normalized * 12;
+                Vector3 randomPosition = Random.insideUnitCircle.normalized * 35;
 
                 transform.position = player.transform.position + randomPosition;
 
@@ -110,7 +114,11 @@ public class Hyena : MonoBehaviour
     {
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
+        actionTimer = 0;
         var foundHyenas = FindObjectsOfType<Hyena>();
+        bodySprite.enabled = headSprite.enabled = true;
+        collider2d.enabled = true;
+
         foreach (var hyena in foundHyenas)
         {
             if (hyena == this) continue;
@@ -125,16 +133,15 @@ public class Hyena : MonoBehaviour
 
     public void GetScared()
     {
+        if (state == HyenaState.Inactive) return;
         confidence++;
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
         attackTimer = 6;
     }
 
-    // Temp, will be replaced by an actual way to scare the hyenas.
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnDestroy()
     {
-        if (other.gameObject.CompareTag("Player"))
-            GetScared();
+        getScaredRange.RemoveHyena(this);
     }
 }

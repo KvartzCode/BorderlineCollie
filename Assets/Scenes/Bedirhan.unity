@@ -131,6 +131,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1941991315}
+    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1018458310}
     - target: {fileID: 6961579566139049275, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_Name
       value: Collie
@@ -178,10 +186,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6961579566139049275, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2068351724}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
 --- !u!1 &1018458309
 GameObject:
@@ -283,6 +288,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2676863722228293164, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 6.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529140275153728357, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       propertyPath: m_Name
       value: Player
@@ -298,6 +311,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1941991319}
+    - targetCorrespondingSourceObject: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941991323}
   m_SourcePrefab: {fileID: 100100000, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
 --- !u!1 &1581887210
 GameObject:
@@ -453,6 +469,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4843bc174a321e4fadfeeffcb67f89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1941991323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941991315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960201495731b01419365d563d8e5466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeToScare: 10
 --- !u!1 &1955821233
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,46 +513,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1018458311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2068351721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6961579566139049275, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-  m_PrefabInstance: {fileID: 818623235}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &2068351724
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068351721}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.84
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
