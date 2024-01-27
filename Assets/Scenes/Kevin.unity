@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 186890225}
   - component: {fileID: 186890224}
   - component: {fileID: 186890223}
+  - component: {fileID: 186890226}
   m_Layer: 0
   m_Name: BotTile
   m_TagString: Untagged
@@ -266,8 +267,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bd552c8be82f54495a51386296aa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  direction: 1
   tileManager: {fileID: 1632252293}
+--- !u!50 &186890226
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186890221}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &485940577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
@@ -320,6 +348,7 @@ GameObject:
   - component: {fileID: 525278951}
   - component: {fileID: 525278950}
   - component: {fileID: 525278949}
+  - component: {fileID: 525278952}
   m_Layer: 0
   m_Name: RightTile
   m_TagString: Untagged
@@ -451,8 +480,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bd552c8be82f54495a51386296aa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  direction: 3
   tileManager: {fileID: 1632252293}
+--- !u!50 &525278952
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525278947}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1108677238
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +605,7 @@ GameObject:
   - component: {fileID: 1231929762}
   - component: {fileID: 1231929761}
   - component: {fileID: 1231929760}
+  - component: {fileID: 1231929763}
   m_Layer: 0
   m_Name: LeftTile
   m_TagString: Untagged
@@ -680,8 +737,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bd552c8be82f54495a51386296aa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  direction: 2
   tileManager: {fileID: 1632252293}
+--- !u!50 &1231929763
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231929758}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1632252291
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,8 +815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e1cc6d02507eb4abbf6cd6224aea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistanceHorizontal: 100
-  moveDistanceVertical: 100
+  moveDistanceHorizontal: 50
+  moveDistanceVertical: 50
 --- !u!1 &1973598564
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +829,7 @@ GameObject:
   - component: {fileID: 1973598568}
   - component: {fileID: 1973598566}
   - component: {fileID: 1973598567}
+  - component: {fileID: 1973598569}
   m_Layer: 0
   m_Name: TopTile
   m_TagString: Untagged
@@ -878,6 +963,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   tileManager: {fileID: 1632252293}
+--- !u!50 &1973598569
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973598564}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &5385859391554765269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -924,6 +1036,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528784633615803036, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577266080423919142, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577266080423919142, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}

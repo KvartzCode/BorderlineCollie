@@ -17,6 +17,7 @@ public class TileManager : MonoBehaviour
 
     public void MoveTile(TileDirection direction)
 	{
+		var newPos = transform.position;
 		switch (direction)
 		{
 			case TileDirection.Up:
