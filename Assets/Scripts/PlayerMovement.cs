@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if(!canMove ) { return; }
-
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 
@@ -54,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) { return; }
 
         moveDirection = input.Get<Vector2>();
+        Debug.Log(moveDirection);
+
         headAnimator.SetFloat("Blend", moveDirection.magnitude);
     }
 
