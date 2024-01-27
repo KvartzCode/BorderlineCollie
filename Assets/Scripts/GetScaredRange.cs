@@ -32,7 +32,7 @@ public class GetScaredRange : MonoBehaviour
             
             hyena = hyenasGameObject.GetComponent<Hyena>();
             
-            if(distanceToHyena < lightComponent.pointLightOuterRadius) 
+            if(distanceToHyena < rangeToScare) 
             {
                 hyena.GetScared();
             }
