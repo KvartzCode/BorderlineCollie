@@ -23,7 +23,6 @@ public class Hyena : MonoBehaviour
     private int confidence = 1;
     private float actionTimer = 0;
     private float timeBetweenActions = 1;
-    private int timesScared = 0;
 
     private float attackTimer = 6;
 
@@ -36,7 +35,7 @@ public class Hyena : MonoBehaviour
 
     void Update()
     {
-        if (actionTimer <= 0 && state != HyenaState.Inactive)
+        if (actionTimer <= 0)
         {
             actionTimer = timeBetweenActions;
             PerformAction();
@@ -52,6 +51,10 @@ public class Hyena : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         switch (state)
         {
+            case HyenaState.Inactive:
+                rb2d.velocity = Vector2.zero;
+                break;
+
             case HyenaState.Retreating:
                 rb2d.velocity = direction.normalized * -6;
                 animator.SetFloat("Blend", 0.8f);
@@ -95,7 +98,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Attacking:
-                rb2d.velocity = direction.normalized * 5;
+                rb2d.velocity = direction.normalized * 7.5f;
                 animator.SetFloat("Blend", 1);
                 break;
         }
@@ -120,9 +123,7 @@ public class Hyena : MonoBehaviour
 
     public void GetScared()
     {
-        if (timesScared == 3) return;
-
-        timesScared++;
+        confidence++;
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
         attackTimer = 6;
