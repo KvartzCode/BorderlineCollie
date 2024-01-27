@@ -11,6 +11,8 @@ public enum HyenaState
 
 public class Hyena : MonoBehaviour
 {
+
+    GetScaredRange getScaredRange;
     public HyenaState state = HyenaState.Inactive;
     public SpriteRenderer bodySprite;
     public SpriteRenderer headSprite;
@@ -29,6 +31,8 @@ public class Hyena : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        getScaredRange = player.GetComponent<GetScaredRange>();
+        getScaredRange.AddHyena(this);
         rb2d = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
         //bodySprite.enabled = headSprite.enabled = false;
@@ -136,5 +140,10 @@ public class Hyena : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
             GetScared();
+    }
+
+    private void OnDestroy()
+    {
+        getScaredRange.RemoveHyena(this);
     }
 }
