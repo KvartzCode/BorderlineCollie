@@ -16,10 +16,7 @@ public class SpawnerSystem : MonoBehaviour
 
     public float range;
 
-
     float timer;
-    float spawnRate = 4;
-
     public bool playerIsFarAway;
 
     float distance;
@@ -30,8 +27,8 @@ public class SpawnerSystem : MonoBehaviour
 
     public float timeToMove = 5;
 
+    public static bool followThePlayer;
 
-    Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,15 +38,16 @@ public class SpawnerSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveRandomizeToPLayer();
+        if(!followThePlayer) 
+        {
+            MoveRandomizeToPLayer();
+        }
     }
 
     private void MoveRandomizeToPLayer()
     {
 
-
         countDogs = GameObject.FindGameObjectsWithTag("Collie");
-
 
         distance = Vector2.Distance(player.transform.position, spawnAreaRandom.transform.position);
         if (distance > distanceFromSpawner)
@@ -62,27 +60,7 @@ public class SpawnerSystem : MonoBehaviour
             {
                 RandomizeSpawning();
                 timer = 0;
-                Debug.Log("Moved");
             }
-        Debug.Log(timer);
-            
-            if (countDogs.Length == 0)
-            {
-                //StartSpawning();
-            }
-        }
-        
-
-    }
-
-    private void StartSpawning()
-    {
-        timer += Time.deltaTime;
-        if (timer > spawnRate)
-        {
-            
-            RandomizeSpawning();
-            timer = 0;
         }
     }
 
@@ -96,15 +74,6 @@ public class SpawnerSystem : MonoBehaviour
         countDogs[0].transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
     }
 
-    private void RandomizeTransform()
-    {
-        randomPos = Random.insideUnitCircle * range;
-        spawnPosition = new Vector3(randomPos.x, randomPos.y, 0);
-
-        spawnPosition += spawnAreaRandom.transform.position;
-
-        Instantiate(collie, spawnPosition, Quaternion.identity);
-    }
 
     private void OnDrawGizmos()
     {
