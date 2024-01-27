@@ -35,7 +35,6 @@ public class GetScaredRange : MonoBehaviour
             if(distanceToHyena < lightComponent.pointLightOuterRadius) 
             {
                 hyena.GetScared();
-                Debug.Log("NÄRAAAA");
             }
         }
 
