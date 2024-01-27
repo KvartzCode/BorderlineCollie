@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     private Material defaultMat;
     [SerializeField] Material outlineMat;
     private SpriteRenderer sr;
-    public GameObject objectToSpawn;
+    public GameObject objectToSpawn = null;
     public bool canInteract = true;
 
     private void Start()
