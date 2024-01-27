@@ -5,22 +5,7 @@ using UnityEngine;
 
 public class VisualSoundCues : MonoBehaviour
 {
-    #region singleton
     public static VisualSoundCues Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    #endregion
 
     [SerializeField] GameObject visualSound;
     [SerializeField] RectTransform canvasRect;
@@ -45,7 +30,7 @@ public class VisualSoundCues : MonoBehaviour
             image.anchoredPosition = GetCanvasPosition(origin);
             image.rotation = rotation;
 
-            Destroy(image.gameObject, 3f);
+            Destroy(image.gameObject, 2f);
         }
     }
 
