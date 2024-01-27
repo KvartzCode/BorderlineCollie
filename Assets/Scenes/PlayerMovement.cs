@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField] float moveSpeed = 5f;
 
+	[SerializeField] Animator animator;
+
 	Vector2 moveDirection;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+		
     }
 
 	void Update()
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	public void OnMove(InputValue input)
 	{
 		moveDirection = input.Get<Vector2>();
+		animator.SetFloat("Blend", moveDirection.magnitude);
 	}
 
 	public void OnWhistle()
