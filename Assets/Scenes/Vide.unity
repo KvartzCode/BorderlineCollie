@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: bodyAnimator
       value: 
       objectReference: {fileID: 1525689290}
+    - target: {fileID: 1295006539464179133, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: headAnimator
+      value: 
+      objectReference: {fileID: 1144396565}
     - target: {fileID: 1528784633615803036, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.9
@@ -179,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b1ffeb96e29195c4cbd4d34c21161bc8, type: 2}
+    - target: {fileID: 3797732647717806735, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: orthographic size
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       propertyPath: m_Name
       value: Player
@@ -448,6 +456,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1144396565 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1885230082640721968, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+  m_PrefabInstance: {fileID: 493396895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300029749
 GameObject:
   m_ObjectHideFlags: 0
