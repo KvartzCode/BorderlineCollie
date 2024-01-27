@@ -7,7 +7,6 @@ public class HyenaSpawner : MonoBehaviour
     public GameObject hyenaPrefab;
 
     private GameObject player;
-    private Vector3 lastSpawnLocation;
     private int maxNumberOfHyenas = 5;
     private List<GameObject> hyenas = new();
 
@@ -17,16 +16,19 @@ public class HyenaSpawner : MonoBehaviour
         SpawnHyenas();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if ((lastSpawnLocation - player.transform.position).sqrMagnitude > 1000)
-            MoveAllInactiveHyenas();
+        foreach (var hyena in hyenas)
+        {
+            if ((hyena.transform.position - player.transform.position).sqrMagnitude > 5000)
+            {
+                MoveObject(hyena);
+            }
+        }
     }
 
     private void SpawnHyenas()
     {
-        lastSpawnLocation = player.transform.position;
         for (int i = 0; i < maxNumberOfHyenas; i++)
         {
             SpawnHyena();
@@ -35,10 +37,12 @@ public class HyenaSpawner : MonoBehaviour
 
     private void SpawnHyena()
     {
-        Vector3 randomPosition = Random.insideUnitCircle * 45;
+        Vector3 randomPosition = Random.insideUnitCircle * 60;
 
-        while (randomPosition.sqrMagnitude < 200)
-            randomPosition = Random.insideUnitCircle * 45;
+        while (randomPosition.sqrMagnitude < 1000)
+            randomPosition = Random.insideUnitCircle * 60;
+
+
 
         GameObject newHyena = Instantiate(hyenaPrefab, player.transform.position + randomPosition, Quaternion.identity);
         hyenas.Add(newHyena);
@@ -46,15 +50,23 @@ public class HyenaSpawner : MonoBehaviour
 
     private void MoveAllInactiveHyenas()
     {
-        lastSpawnLocation = player.transform.position;
         foreach (var hyena in hyenas)
         {
             if (hyena.GetComponent<Hyena>().state != HyenaState.Inactive) continue;
-            Vector3 randomPosition = Random.insideUnitCircle * 45;
-            while (randomPosition.sqrMagnitude < 200)
-                randomPosition = Random.insideUnitCircle * 45;
+            Vector3 randomPosition = Random.insideUnitCircle * 60;
+            while (randomPosition.sqrMagnitude < 1000)
+                randomPosition = Random.insideUnitCircle * 60;
 
             hyena.transform.position = player.transform.position + randomPosition;
         }
     }
+
+    private void MoveObject(GameObject objectToMove)
+    {
+        Vector3 randomPosition = Random.insideUnitCircle * 60;
+        while (randomPosition.sqrMagnitude < 1000)
+            randomPosition = Random.insideUnitCircle * 60;
+
+        objectToMove.transform.position = player.transform.position + randomPosition;
+    } 
 }

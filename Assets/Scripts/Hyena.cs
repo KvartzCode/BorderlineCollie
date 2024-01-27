@@ -31,6 +31,8 @@ public class Hyena : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
+        //bodySprite.enabled = headSprite.enabled = false;
+        //collider2d.enabled = false;
     }
 
     void Update()
