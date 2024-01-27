@@ -9,7 +9,7 @@ public class HyenaSpawner : MonoBehaviour
 
     private GameObject player;
     private int maxNumberOfHyenas = 5;
-    private int maxNumberOfBushes = 5;
+    private int maxNumberOfBushes = 2;
     private List<GameObject> hyenasBushes = new();
     private List<GameObject> bushes = new();
 
