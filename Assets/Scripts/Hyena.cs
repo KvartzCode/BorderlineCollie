@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum HyenaState
@@ -13,10 +12,11 @@ public enum HyenaState
 public class Hyena : MonoBehaviour
 {
     public HyenaState state = HyenaState.Inactive;
+    public SpriteRenderer bodySprite;
+    public SpriteRenderer headSprite;
 
     private GameObject player;
     private Rigidbody2D rb2d;
-    private SpriteRenderer spriteRenderer;
     private Collider2D collider2d;
 
     private int confidence = 1;
@@ -30,7 +30,6 @@ public class Hyena : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         collider2d = GetComponent<Collider2D>();
     }
 
@@ -43,6 +42,8 @@ public class Hyena : MonoBehaviour
         }
 
         actionTimer -= Time.deltaTime;
+
+        bodySprite.flipX = headSprite.flipX = rb2d.velocity.x < 0;
     }
 
     private void PerformAction()
@@ -58,7 +59,7 @@ public class Hyena : MonoBehaviour
                     state = HyenaState.Lurking;
                     timeBetweenActions = 8;
                     actionTimer = 0;
-                    spriteRenderer.enabled = false;
+                    bodySprite.enabled = headSprite.enabled = false;
                     collider2d.enabled = false;
                 }
                 break;
@@ -73,7 +74,7 @@ public class Hyena : MonoBehaviour
                     state = HyenaState.Approaching;
                     timeBetweenActions = 0.1f;
                     actionTimer = 0;
-                    spriteRenderer.enabled = true;
+                    bodySprite.enabled = headSprite.enabled = true;
                     collider2d.enabled = true;
                 }
                 break;
@@ -120,6 +121,7 @@ public class Hyena : MonoBehaviour
         timesScared++;
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
+        attackTimer = 6;
     }
 
     // Temp, will be replaced by an actual way to scare the hyenas.
