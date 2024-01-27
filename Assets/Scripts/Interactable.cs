@@ -49,6 +49,7 @@ public class Interactable : MonoBehaviour
         canInteract = false;
         sr.sortingOrder = 5;
 
+        if (objectToSpawn == null) return;
         if (objectToSpawn.GetComponent<Hyena>() != null) 
             objectToSpawn.GetComponent<Hyena>().Activate();
     }

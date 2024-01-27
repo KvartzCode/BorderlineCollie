@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyenaBushPrefab: {fileID: 8538674800410873354, guid: 68dd5efad3456024681375aa7f4e1ff9, type: 3}
+  normalBushPrefab: {fileID: 8538674800410873354, guid: b1d78b858bfd4104c82f943b23e8edc1, type: 3}
 --- !u!4 &16483885
 Transform:
   m_ObjectHideFlags: 0
@@ -545,58 +546,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4512456560854050147, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7560208990986608432, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2017719314}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
---- !u!1 &2017719313 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
-  m_PrefabInstance: {fileID: 2017719312}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &2017719314
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017719313}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &2273837851231879040
 PrefabInstance:
   m_ObjectHideFlags: 0
