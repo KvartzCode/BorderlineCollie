@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] Material defaultMat;
+    private Material defaultMat;
     [SerializeField] Material outlineMat;
     private SpriteRenderer sr;
-    private bool canInteract = true;
+    public bool canInteract = true;
 
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        defaultMat = sr.material;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

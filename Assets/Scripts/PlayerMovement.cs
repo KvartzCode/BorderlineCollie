@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Interactable interactable;
     Vector2 moveDirection;
 
+    public bool canMove = true;
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(!canMove ) { return; }
+
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 
@@ -37,17 +40,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue input)
     {
+        if (!canMove) { return; }
+
         moveDirection = input.Get<Vector2>();
         animator.SetFloat("Blend", moveDirection.magnitude);
     }
 
     public void OnWhistle()
     {
+        if (!canMove) { return; }
+
         Debug.Log("WHISTLE!");
     }
 
     public void OnInteract()
     {
+        if (!canMove) { return; }
+
         Debug.Log("Interact Triggered");
 
         if(interactable != null )
