@@ -27,7 +27,7 @@ public class SpawnerSystem : MonoBehaviour
 
     public float timeToMove = 5;
 
-    public static bool followThePlayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +38,9 @@ public class SpawnerSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!followThePlayer) 
-        {
+       
             MoveRandomizeToPLayer();
-        }
+        
     }
 
     private void MoveRandomizeToPLayer()
