@@ -31,8 +31,8 @@ public class Hyena : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
-        //bodySprite.enabled = headSprite.enabled = false;
-        //collider2d.enabled = false;
+        bodySprite.enabled = headSprite.enabled = false;
+        collider2d.enabled = false;
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class Hyena : MonoBehaviour
             case HyenaState.Retreating:
                 rb2d.velocity = direction.normalized * -6;
                 animator.SetFloat("Blend", 0.8f);
-                if (direction.sqrMagnitude > 200)
+                if (direction.sqrMagnitude > 900)
                 {
                     rb2d.velocity = Vector2.zero;
                     state = HyenaState.Lurking;
@@ -72,7 +72,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Lurking:
-                Vector3 randomPosition = Random.insideUnitCircle.normalized * 12;
+                Vector3 randomPosition = Random.insideUnitCircle.normalized * 35;
 
                 transform.position = player.transform.position + randomPosition;
 
@@ -110,7 +110,11 @@ public class Hyena : MonoBehaviour
     {
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
+        actionTimer = 0;
         var foundHyenas = FindObjectsOfType<Hyena>();
+        bodySprite.enabled = headSprite.enabled = true;
+        collider2d.enabled = true;
+
         foreach (var hyena in foundHyenas)
         {
             if (hyena == this) continue;
