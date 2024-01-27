@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16483883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16483885}
+  - component: {fileID: 16483884}
+  m_Layer: 0
+  m_Name: Spawner script holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &16483884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16483883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95a08c8c2c2b724d915a73a81394bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hyenaPrefab: {fileID: 1364127916143145352, guid: 0d4e584655540fd4a9d13d8f8d92cbc0, type: 3}
+--- !u!4 &16483885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16483883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7563758, y: -1.6678929, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602098489
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hyena (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1364127916143145352, guid: 0d4e584655540fd4a9d13d8f8d92cbc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5827562076642255409, guid: 0d4e584655540fd4a9d13d8f8d92cbc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.41
@@ -459,6 +508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hyena
       objectReference: {fileID: 0}
+    - target: {fileID: 1364127916143145352, guid: 0d4e584655540fd4a9d13d8f8d92cbc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5827562076642255409, guid: 0d4e584655540fd4a9d13d8f8d92cbc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.37
@@ -512,3 +565,4 @@ SceneRoots:
   - {fileID: 1614427471}
   - {fileID: 2273837851231879040}
   - {fileID: 1851981646}
+  - {fileID: 16483885}
