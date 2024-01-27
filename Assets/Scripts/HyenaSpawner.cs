@@ -4,60 +4,51 @@ using UnityEngine;
 
 public class HyenaSpawner : MonoBehaviour
 {
-    public GameObject hyenaPrefab;
+    public GameObject hyenaBushPrefab;
 
     private GameObject player;
     private int maxNumberOfHyenas = 5;
-    private List<GameObject> hyenas = new();
+    private List<GameObject> hyenasBushes = new();
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        SpawnHyenas();
+        SpawnHyenaBushes();
     }
 
     void Update()
     {
-        foreach (var hyena in hyenas)
-        {
-            if ((hyena.transform.position - player.transform.position).sqrMagnitude > 5000)
-            {
-                MoveObject(hyena);
-            }
-        }
+        MoveAllInactiveHyenasBushes();
     }
 
-    private void SpawnHyenas()
+    private void SpawnHyenaBushes()
     {
         for (int i = 0; i < maxNumberOfHyenas; i++)
         {
-            SpawnHyena();
+            SpawnHyenaBush();
         }
     }
 
-    private void SpawnHyena()
+    private void SpawnHyenaBush()
     {
         Vector3 randomPosition = Random.insideUnitCircle * 60;
 
         while (randomPosition.sqrMagnitude < 1000)
             randomPosition = Random.insideUnitCircle * 60;
 
-
-
-        GameObject newHyena = Instantiate(hyenaPrefab, player.transform.position + randomPosition, Quaternion.identity);
-        hyenas.Add(newHyena);
+        GameObject newHyenaBush = Instantiate(hyenaBushPrefab, player.transform.position + randomPosition, Quaternion.identity);
+        hyenasBushes.Add(newHyenaBush);
     }
 
-    private void MoveAllInactiveHyenas()
+    private void MoveAllInactiveHyenasBushes()
     {
-        foreach (var hyena in hyenas)
+        foreach (var hyenaBush in hyenasBushes)
         {
-            if (hyena.GetComponent<Hyena>().state != HyenaState.Inactive) continue;
-            Vector3 randomPosition = Random.insideUnitCircle * 60;
-            while (randomPosition.sqrMagnitude < 1000)
-                randomPosition = Random.insideUnitCircle * 60;
-
-            hyena.transform.position = player.transform.position + randomPosition;
+            if((hyenaBush.transform.position - player.transform.position).sqrMagnitude > 5000)
+            {
+                if (hyenaBush.GetComponentInChildren<Hyena>().state == HyenaState.Inactive)
+                    MoveObject(hyenaBush);
+            }
         }
     }
 
