@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator headAnimator;
     [SerializeField] Animator bodyAnimator;
 
+    Rigidbody2D rb;
 
     private Interactable interactable;
     Vector2 moveDirection;
@@ -21,12 +22,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         canMove = true;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         if(!canMove ) { return; }
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        //transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         headAnimator.SetTrigger("happy");
     }
+
     #region Input Methods
 
     public void OnMove(InputValue input)
@@ -53,11 +56,13 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) { return; }
 
         moveDirection = input.Get<Vector2>();
+
         Debug.Log(moveDirection);
 
         headAnimator.SetFloat("Blend", moveDirection.magnitude);
-
         bodyAnimator.SetFloat("Blend", moveDirection.magnitude);
+
+        rb.velocity = moveDirection * moveSpeed * Time.deltaTime;
     }
 
 
