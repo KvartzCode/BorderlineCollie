@@ -133,17 +133,11 @@ public class Hyena : MonoBehaviour
 
     public void GetScared()
     {
+        if (state == HyenaState.Inactive) return;
         confidence++;
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
         attackTimer = 6;
-    }
-
-    // Temp, will be replaced by an actual way to scare the hyenas.
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-            GetScared();
     }
 
     private void OnDestroy()
