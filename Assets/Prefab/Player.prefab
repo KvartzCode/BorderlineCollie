@@ -71,7 +71,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 359.99997
   m_PointLightOuterAngle: 359.99997
   m_PointLightInnerRadius: 2
-  m_PointLightOuterRadius: 4.8
+  m_PointLightOuterRadius: 15
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -478,7 +478,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.8
+  m_Radius: 14
 --- !u!1 &7131023576276430916
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   headAnimator: {fileID: 1885230082640721968}
-  bodyAnimator: {fileID: 0}
+  bodyAnimator: {fileID: 6602300611680402303}
   canMove: 1
 --- !u!114 &3577266080423919142
 MonoBehaviour:
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyenaList: []
-  rangeToScare: 5
+  rangeToScare: 15
 --- !u!1 &8173404377774305552
 GameObject:
   m_ObjectHideFlags: 0

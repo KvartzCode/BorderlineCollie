@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(moveDirection);
 
         headAnimator.SetFloat("Blend", moveDirection.magnitude);
+
+        bodyAnimator.SetFloat("Blend", moveDirection.magnitude);
     }
 
 
