@@ -178,7 +178,7 @@
                     "id": "1e9dd430-87ff-4b77-9913-097b05dc5d22",
                     "path": "<HID::Nintendo GameCube Controller Adapter>/stick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "GameCube",
                     "action": "Move",
                     "isComposite": false,
@@ -321,7 +321,7 @@
                     "id": "b1a15e8c-437f-4a47-9194-1753b6f1e2f0",
                     "path": "<HID::Nintendo GameCube Controller Adapter>/z",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone",
                     "groups": "GameCube",
                     "action": "Look",
                     "isComposite": false,
@@ -332,7 +332,7 @@
                     "id": "501b19e4-7d5b-45d7-b8b1-58dc55730a8f",
                     "path": "<HID::Nintendo GameCube Controller Adapter>/rz",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone",
                     "groups": "GameCube",
                     "action": "Look",
                     "isComposite": false,
@@ -968,6 +968,11 @@
             "devices": [
                 {
                     "devicePath": "<HID::Nintendo GameCube Controller Adapter>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }
