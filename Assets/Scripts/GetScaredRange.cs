@@ -26,20 +26,23 @@ public class GetScaredRange : MonoBehaviour
     {
 
         lightComponent.pointLightOuterRadius = rangeToScare;
-        foreach (Hyena hyenasGameObject in hyenaList) 
+        ScareHyenas();
+
+    }
+
+    public void ScareHyenas()
+    {
+        foreach (Hyena hyenasGameObject in hyenaList)
         {
             float distanceToHyena = Vector2.Distance(transform.position, hyenasGameObject.transform.position);
-            
+
             hyena = hyenasGameObject.GetComponent<Hyena>();
-            
-            if(distanceToHyena < rangeToScare) 
+
+            if (distanceToHyena < rangeToScare)
             {
                 hyena.GetScared();
             }
         }
-
-
-
     }
 
     public  void AddHyena(Hyena hyena)
