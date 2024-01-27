@@ -16,23 +16,29 @@ public class Hyena : MonoBehaviour
 
     private GameObject player;
     private Rigidbody2D rb2d;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D collider2d;
 
     private int confidence = 1;
     private float actionTimer = 0;
-    private float actionTimerMax = 1;
+    private float timeBetweenActions = 1;
     private int timesScared = 0;
+
+    private float attackTimer = 6;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        collider2d = GetComponent<Collider2D>();
     }
 
     void Update()
     {
         if (actionTimer <= 0 && state != HyenaState.Inactive)
         {
-            actionTimer = actionTimerMax;
+            actionTimer = timeBetweenActions;
             PerformAction();
         }
 
@@ -50,8 +56,10 @@ public class Hyena : MonoBehaviour
                 {
                     rb2d.velocity = Vector2.zero;
                     state = HyenaState.Lurking;
-                    actionTimerMax = 8;
+                    timeBetweenActions = 8;
                     actionTimer = 0;
+                    spriteRenderer.enabled = false;
+                    collider2d.enabled = false;
                 }
                 break;
 
@@ -60,21 +68,25 @@ public class Hyena : MonoBehaviour
 
                 transform.position = player.transform.position + randomPosition;
 
-                if (Random.Range(0, 11) + confidence >= 11)
+                if (Random.Range(0, 15) + confidence >= 15)
                 {
                     state = HyenaState.Approaching;
-                    actionTimerMax = 0.25f;
+                    timeBetweenActions = 0.1f;
                     actionTimer = 0;
+                    spriteRenderer.enabled = true;
+                    collider2d.enabled = true;
                 }
                 break;
 
             case HyenaState.Approaching:
                 rb2d.velocity = direction.normalized;
-                if(direction.sqrMagnitude <= 6)
+                attackTimer -= 0.1f;
+                if(direction.sqrMagnitude <= 6 || attackTimer <= 0)
                 {
                     state = HyenaState.Attacking;
-                    actionTimerMax = 0.1f;
+                    timeBetweenActions = 0.1f;
                     actionTimer = 0;
+                    attackTimer = 6;
                 }
                 break;
 
@@ -87,7 +99,7 @@ public class Hyena : MonoBehaviour
     public void Activate()
     {
         state = HyenaState.Retreating;
-        actionTimerMax = 0.5f;
+        timeBetweenActions = 0.5f;
         var foundHyenas = FindObjectsOfType<Hyena>();
         foreach (var hyena in foundHyenas)
         {
@@ -107,7 +119,7 @@ public class Hyena : MonoBehaviour
 
         timesScared++;
         state = HyenaState.Retreating;
-        actionTimerMax = 0.5f;
+        timeBetweenActions = 0.5f;
     }
 
     // Temp, will be replaced by an actual way to scare the hyenas.

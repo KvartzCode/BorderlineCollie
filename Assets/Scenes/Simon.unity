@@ -293,7 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  confidence: 1
 --- !u!212 &900688832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -466,7 +465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  confidence: 1
 --- !u!212 &1246314462
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -639,7 +637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  confidence: 1
 --- !u!212 &1257438407
 SpriteRenderer:
   m_ObjectHideFlags: 0
