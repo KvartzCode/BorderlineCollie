@@ -613,6 +613,7 @@ MonoBehaviour:
   treePrefab: {fileID: 3870539883454249037, guid: 79b8eb3a94d72ee419dcbf80fee8efb3, type: 3}
   collieBushPrefab: {fileID: 8538674800410873354, guid: 14b21fb794b1096498fab4e1f1f9ce03, type: 3}
   carouselHorsePrefab: {fileID: 5783863902880852691, guid: 491997849eadb294d9fa528f42ebfa9f, type: 3}
+  circusStoolPrefab: {fileID: 5850563170799492463, guid: 05b8092fbbdf51c47829be20ea78f9e1, type: 3}
 --- !u!4 &1981683252
 Transform:
   m_ObjectHideFlags: 0
