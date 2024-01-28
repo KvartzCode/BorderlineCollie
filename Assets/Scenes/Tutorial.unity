@@ -211,17 +211,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b60fefb54bbd96c4aa18bbf28aa57958, type: 2}
+  m_sharedMaterial: {fileID: 3176130051011907177, guid: b60fefb54bbd96c4aa18bbf28aa57958, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -842,6 +844,7 @@ MonoBehaviour:
   outlineMat: {fileID: -876546973899608171, guid: 5b668382b8dc90447ab70c48c49a4b7a, type: 3}
   objectToSpawn: {fileID: 0}
   canInteract: 1
+  rustlingLeaf: {fileID: 0}
 --- !u!1 &1351185717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
@@ -1782,9 +1785,9 @@ Transform:
   m_GameObject: {fileID: 1929418657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.548283, y: -17.096048, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 33.4, y: -2.8, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
