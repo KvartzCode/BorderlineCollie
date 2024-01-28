@@ -368,10 +368,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 8162505116490162546}
     m_Modifications:
     - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-      propertyPath: spawnCircleArea
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: spriteRendererBody
       value: 
       objectReference: {fileID: 4735612230574910927}
