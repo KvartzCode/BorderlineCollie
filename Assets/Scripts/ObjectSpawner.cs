@@ -10,7 +10,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject carouselHorsePrefab;
 
     private GameObject player;
-    private int maxNumberOfHyenas = 5;
+    private int maxNumberOfHyenas = 7;
     private int maxNumberOfBushes = 2;
     private int maxNumberOfTrees = 4;
     private List<GameObject> hyenasBushes = new();

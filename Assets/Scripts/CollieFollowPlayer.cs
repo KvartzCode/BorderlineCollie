@@ -49,6 +49,7 @@ public class CollieFollowPlayer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         instantiateTheCircus = true;
         followPlayer = false;
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating(nameof(LaughInBush), Random.Range(3, 11), 11);
     }
 
@@ -67,7 +68,6 @@ public class CollieFollowPlayer : MonoBehaviour
     public void FoundTheDog()
     {
 
-        Debug.Log("FOUND");
         col.enabled = true;
         spriteRendererHead.enabled = true;
         spriteRendererBody.enabled = true;
@@ -82,7 +82,6 @@ public class CollieFollowPlayer : MonoBehaviour
 
     public void FollowPLayer()
     {
-        Debug.Log("FOLLOW");
 
         float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
         direction = player.transform.position - gameObject.transform.position;

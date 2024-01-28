@@ -69,7 +69,6 @@ public class Interactable : MonoBehaviour
         {
             collie.followPlayer = true;
         }
-        Debug.Log("kalla på collie");
         if (objectToSpawn.GetComponent<Hyena>() != null)
             objectToSpawn.GetComponent<Hyena>().Activate();
     }
