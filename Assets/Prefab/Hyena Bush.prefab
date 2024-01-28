@@ -245,6 +245,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: BushLeavesParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 3118904256730554750, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118904256730554750, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060889582244804708, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060889582244804708, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5379150023327674835, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -284,6 +300,14 @@ PrefabInstance:
     - target: {fileID: 5379150023327674835, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134635148935826588, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134635148935826588, guid: d3a72e457ee5eef47a0df7f142bb23e6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
