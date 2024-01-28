@@ -10,6 +10,12 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void RestartGame()
+    {
+        BGMusic.Instance.distance = 0;
+        SceneManager.LoadScene("GameScene");
+    }
+
     public void ExitGame()
     {
 #if UNITY_EDITOR
