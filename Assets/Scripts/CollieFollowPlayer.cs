@@ -5,6 +5,10 @@ using UnityEngine;
 public class CollieFollowPlayer : MonoBehaviour
 {
     public GameObject player;
+    public GameObject circus;
+
+    private float spawnCircleArea = 60;
+    private float minSpawnDistance = 1500;
 
     public bool followPlayer;
 
@@ -20,11 +24,13 @@ public class CollieFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(followPlayer)
+        if (followPlayer)
         {
             FollowPLayer();
+            SpawnCircus();
+            followPlayer = false;
         }
-        
+
     }
 
 
@@ -37,5 +43,24 @@ public class CollieFollowPlayer : MonoBehaviour
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
         }
 
+    }
+
+    private void SpawnCircus()
+    {
+
+        Vector3 randomPosition = GetRandomPositionAroundPlayer();
+
+        Instantiate(circus, player.transform.position + randomPosition, Quaternion.identity);
+
+    }
+
+
+    private Vector3 GetRandomPositionAroundPlayer()
+    {
+        Vector3 randomPosition = Random.insideUnitCircle * spawnCircleArea;
+        while (randomPosition.sqrMagnitude < minSpawnDistance)
+            randomPosition = Random.insideUnitCircle * spawnCircleArea;
+
+        return randomPosition;
     }
 }

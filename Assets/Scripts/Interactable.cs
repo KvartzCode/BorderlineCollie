@@ -17,13 +17,14 @@ public class Interactable : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         defaultMat = sr.material;
-        bushParticles = GetComponent<BuschParticleSystem>();
+        bushParticles = GetComponentInChildren<BuschParticleSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            if (!canInteract) { return; }
             SetOutline(true);
         }
     }
