@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
 
     [SerializeField] public Animator headAnimator;
-    [SerializeField] public  Animator bodyAnimator;
+    [SerializeField] public Animator bodyAnimator;
     [SerializeField] GameObject deathScreen;
 
     GetScaredRange getScaredRange;
@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     AudioSource audioSource;
 
     public bool canMove = true;
+    public bool canWhistle = true;
+    private float timer;
+    private float cooldown = 1;
 
     void Start()
     {
@@ -31,9 +34,22 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        if (!canWhistle)
+        {
+            timer += Time.deltaTime;
+            if (timer >= cooldown)
+            {
+                canWhistle = true;
+                timer = 0;
+            }
+        }
+    }
+
     void FixedUpdate()
     {
-        if(!canMove ) { return; }
+        if (!canMove) { return; }
         Move();
         //transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
@@ -45,14 +61,14 @@ public class PlayerMovement : MonoBehaviour
             interactable = collision.GetComponent<Interactable>();
         }
     }
-    
+
     private void MakeSound(AudioClip[] audioClips)
     {
 
         audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
         audioSource.Play();
     }
-    
+
     void Move()
     {
         Vector2 direction = moveDirection.normalized;
@@ -96,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = input.Get<Vector2>();
 
-        Debug.Log(moveDirection);
 
         headAnimator.SetFloat("Blend", moveDirection.magnitude);
         bodyAnimator.SetFloat("Blend", moveDirection.magnitude);
@@ -107,19 +122,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnWhistle()
     {
-        if (!canMove) { return; }
+        if (!canMove || !canWhistle) { return; }
+        canWhistle = false;
         MakeSound(whistleSounds);
         getScaredRange.ScareHyenas();
-        Debug.Log("WHISTLE!");
     }
 
     public void OnInteract()
     {
         if (!canMove) { return; }
 
-        Debug.Log("Interact Triggered");
 
-        if(interactable != null )
+        if (interactable != null)
         {
             interactable.Interact();
         }
@@ -127,13 +141,13 @@ public class PlayerMovement : MonoBehaviour
 
     internal void Die()
     {
-        if(canMove == true)
+        if (canMove == true)
         {
             MakeSound(screamSounds);
             deathScreen.SetActive(true);
             canMove = false;
         }
-        
+
     }
 
     #endregion
