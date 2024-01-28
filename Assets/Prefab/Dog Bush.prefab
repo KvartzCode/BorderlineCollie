@@ -369,8 +369,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: spawnCircleArea
-      value: 1000
+      value: 750
       objectReference: {fileID: 0}
+    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+      propertyPath: spriteRendererBody
+      value: 
+      objectReference: {fileID: 4735612230574910927}
+    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+      propertyPath: spriteRendererHead
+      value: 
+      objectReference: {fileID: 3002213102289047746}
     - target: {fileID: 6961579566139049275, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_Name
       value: Collie
@@ -428,5 +436,15 @@ GameObject:
 --- !u!4 &1218521854556500218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9065876547064030121, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+  m_PrefabInstance: {fileID: 7870455431895192403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3002213102289047746 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4941426725002036113, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+  m_PrefabInstance: {fileID: 7870455431895192403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4735612230574910927 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3206914502251626140, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
   m_PrefabInstance: {fileID: 7870455431895192403}
   m_PrefabAsset: {fileID: 0}

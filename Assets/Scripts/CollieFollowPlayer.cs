@@ -9,8 +9,8 @@ public class CollieFollowPlayer : MonoBehaviour
 
 
     Collider2D col;
-    SpriteRenderer spriteRendererHead;
-    SpriteRenderer spriteRendererBody;
+    public SpriteRenderer spriteRendererHead;
+    public SpriteRenderer spriteRendererBody;
 
 
     public float spawnCircleArea = 60;
@@ -33,8 +33,6 @@ public class CollieFollowPlayer : MonoBehaviour
     void Start()
     {
         col = GetComponent<Collider2D>();
-        spriteRendererHead = GetComponentInChildren<SpriteRenderer>();
-        spriteRendererBody = GetComponentInChildren<SpriteRenderer>();
 
         if (player == null)
         {
