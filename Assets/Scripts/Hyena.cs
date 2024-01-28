@@ -112,6 +112,7 @@ public class Hyena : MonoBehaviour
 
     public void Activate()
     {
+        player.GetComponent<PlayerMovement>().GetScared();
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
         actionTimer = 0;
