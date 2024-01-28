@@ -10,10 +10,10 @@ public class GetScaredRange : MonoBehaviour
     Hyena hyena;
 
     Light2D lightComponent;
-    GameObject[] hyenas;
 
 
     public float rangeToScare;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,6 @@ public class GetScaredRange : MonoBehaviour
     {
 
         lightComponent.pointLightOuterRadius = rangeToScare;
-        ScareHyenas();
 
     }
 

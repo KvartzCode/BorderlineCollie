@@ -24,13 +24,11 @@ public class CollieFollowPlayer : MonoBehaviour
         {
             FollowPLayer();
         }
-        else
-        {
-        }
+        
     }
 
 
-    void FollowPLayer()
+    public void FollowPLayer()
     {
         float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
 
@@ -38,8 +36,6 @@ public class CollieFollowPlayer : MonoBehaviour
         {
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
         }
-
-
 
     }
 }
