@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
 
-    [SerializeField] Animator headAnimator;
-    [SerializeField] Animator bodyAnimator;
+    [SerializeField] public Animator headAnimator;
+    [SerializeField] public  Animator bodyAnimator;
     [SerializeField] GameObject deathScreen;
 
     GetScaredRange getScaredRange;
