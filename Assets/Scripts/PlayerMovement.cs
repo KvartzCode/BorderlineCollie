@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
 
-    [SerializeField] Animator headAnimator;
-    [SerializeField] Animator bodyAnimator;
+    [SerializeField] public Animator headAnimator;
+    [SerializeField] public  Animator bodyAnimator;
     [SerializeField] GameObject deathScreen;
 
     GetScaredRange getScaredRange;
@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
     public void GetScared()
     {
         headAnimator.SetTrigger("scared");
-        getScaredRange.ScareHyenas();      
     }
     public void GetHappy()
     {
@@ -74,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnWhistle()
     {
         if (!canMove) { return; }
-
+        getScaredRange.ScareHyenas();
         Debug.Log("WHISTLE!");
     }
 

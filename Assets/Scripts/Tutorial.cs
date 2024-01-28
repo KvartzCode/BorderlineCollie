@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -93,11 +94,13 @@ public class Tutorial : MonoBehaviour
         audioSource.PlayOneShot(voicelines[1]);
         text.text = "I can see you!";
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
 
         audioSource.PlayOneShot(voicelines[2]);
 
         text.text = "Let me hide for real then";
+
+        yield return new WaitForSeconds(2);
 
         elapsedTime = 0f;
         lerpDuration = 2f;
@@ -146,7 +149,7 @@ public class Tutorial : MonoBehaviour
 
         text.text = "Where did you go?";
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
 
         elapsedTime = 0f;
         float camStart = cam.orthographicSize;
@@ -191,6 +194,8 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator EndTutorial()
     {
+        dog.SetActive(true);
+
         float elapsedTime = 0f;
         float lerpDuration = 2f;
         Vector2 start = dog.transform.position;
@@ -214,6 +219,9 @@ public class Tutorial : MonoBehaviour
 
         while (elapsedTime < lerpDuration)
         {
+            girl.GetComponent<PlayerMovement>().headAnimator.SetFloat("Blend", 1);
+            girl.GetComponent<PlayerMovement>().bodyAnimator.SetFloat("Blend", 1);
+
             float t = elapsedTime / lerpDuration;
 
             girl.transform.position = Vector2.Lerp(start, girlWaypoint.transform.position, t);
@@ -224,7 +232,8 @@ public class Tutorial : MonoBehaviour
         }
         girl.transform.position = girlWaypoint.transform.position;
         text.text = " ";
-
+        girl.GetComponent<PlayerMovement>().headAnimator.SetFloat("Blend", 0);
+        girl.GetComponent<PlayerMovement>().bodyAnimator.SetFloat("Blend", 0);
         elapsedTime = 0f;
         lerpDuration = 2f;
         start = hyena.transform.position;
@@ -243,6 +252,9 @@ public class Tutorial : MonoBehaviour
         text.text = " ";
 
         audioSource.PlayOneShot(whistle);
+
+        yield return new WaitForSeconds(0.1f);
+
         audioSource.PlayOneShot(hyenaSound);
         yield return new WaitForSeconds(0.25f);
 
@@ -261,6 +273,10 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
         hyena.transform.position = hyenaWaypoint2.transform.position;
+
+        yield return new WaitForSeconds(1f);
+
+        SwitchScene();
     }
 
     private void SwitchScene()
