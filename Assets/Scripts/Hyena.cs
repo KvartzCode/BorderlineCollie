@@ -28,11 +28,11 @@ public class Hyena : MonoBehaviour
     private float timeBetweenActions = 1;
 
     private float attackTimer = 10;
-    AudioSource audio;
+    AudioSource audioSource;
 
     void Start()
     { 
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         getScaredRange = player.GetComponent<GetScaredRange>();
         getScaredRange.AddHyena(this);
@@ -66,7 +66,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Retreating:
-                rb2d.velocity = direction.normalized * -7;
+                rb2d.velocity = direction.normalized * -14;
                 animator.SetFloat("Blend", 0.8f);
                 if (direction.sqrMagnitude > 900)
                 {
@@ -95,7 +95,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Approaching:
-                rb2d.velocity = direction.normalized * 2;
+                rb2d.velocity = direction.normalized * 4;
                 attackTimer -= 0.1f;
                 animator.SetFloat("Blend", 0.5f);
                 if(direction.sqrMagnitude <= 6 || attackTimer <= 0)
@@ -108,7 +108,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Attacking:
-                rb2d.velocity = direction.normalized * 7.5f;
+                rb2d.velocity = direction.normalized * 15;
                 animator.SetFloat("Blend", 1);
                 break;
         }
@@ -116,8 +116,8 @@ public class Hyena : MonoBehaviour
     private void MakeSound(AudioClip[] audioClips )
     {
         VisualSoundCues.Instance.MadeSound(transform.position);
-        audio.clip = audioClips[Random.Range(0, audioClips.Length)];
-        audio.Play();
+        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioSource.Play();
     }
     private void LaughInBush()
     {
