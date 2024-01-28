@@ -8,6 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject treePrefab;
     public GameObject collieBushPrefab;
     public GameObject carouselHorsePrefab;
+    public GameObject circusStoolPrefab;
 
     private GameObject player;
     private int maxNumberOfHyenas = 7;
@@ -18,6 +19,7 @@ public class ObjectSpawner : MonoBehaviour
     private List<GameObject> trees = new();
     private GameObject collieBush;
     private GameObject carouselHorse;
+    private GameObject circusStool;
 
     private float spawnCircleArea = 80;
     private float minSpawnDistance = 2000;
@@ -31,6 +33,7 @@ public class ObjectSpawner : MonoBehaviour
         SpawnTrees();
         SpawnCollieBush();
         SpawnCarouselHorse();
+        SpawnCircusStool();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class ObjectSpawner : MonoBehaviour
         MoveAllTrees();
         MoveCollieBush();
         MoveCarouselHorse();
+        MoveCircusStool();
     }
 
     #region Spawning
@@ -90,6 +94,13 @@ public class ObjectSpawner : MonoBehaviour
 
         carouselHorse = Instantiate(carouselHorsePrefab, player.transform.position + randomPosition, Quaternion.identity);
     }
+
+    private void SpawnCircusStool()
+    {
+        Vector3 randomPosition = GetRandomPositionAroundPlayer();
+
+        circusStool = Instantiate(circusStoolPrefab, player.transform.position + randomPosition, Quaternion.identity);
+    }
     #endregion
 
     #region Moving
@@ -137,6 +148,12 @@ public class ObjectSpawner : MonoBehaviour
     {
         if ((carouselHorse.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
             MoveObject(carouselHorse);
+    }
+
+    private void MoveCircusStool()
+    {
+        if ((circusStool.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
+            MoveObject(circusStool);
     }
 
     private void MoveObject(GameObject objectToMove)
