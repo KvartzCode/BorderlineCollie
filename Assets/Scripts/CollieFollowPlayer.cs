@@ -54,6 +54,8 @@ public class CollieFollowPlayer : MonoBehaviour
             FoundTheDog();
         }
 
+        spriteRendererBody.flipX = spriteRendererHead.flipX = rb2d.velocity.x < 0;
+
     }
 
     public void FoundTheDog()
