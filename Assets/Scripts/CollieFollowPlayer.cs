@@ -7,7 +7,13 @@ public class CollieFollowPlayer : MonoBehaviour
     public GameObject player;
     public GameObject circus;
 
-    private float spawnCircleArea = 60;
+
+    Collider2D col;
+    SpriteRenderer spriteRendererHead;
+    SpriteRenderer spriteRendererBody;
+
+
+    public float spawnCircleArea = 60;
     private float minSpawnDistance = 1500;
 
     public bool followPlayer;
@@ -26,6 +32,17 @@ public class CollieFollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        col = GetComponent<Collider2D>();
+        spriteRendererHead = GetComponentInChildren<SpriteRenderer>();
+        spriteRendererBody = GetComponentInChildren<SpriteRenderer>();
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        col.enabled = false;
+        spriteRendererHead.enabled = false;
         rb2d = GetComponent<Rigidbody2D>();
         instantiateTheCircus = true;
         followPlayer = false;
@@ -41,8 +58,14 @@ public class CollieFollowPlayer : MonoBehaviour
 
     }
 
-    private void FoundTheDog()
+    public void FoundTheDog()
     {
+
+        Debug.Log("FOUND");
+        col.enabled = true;
+        spriteRendererHead.enabled = true;
+        spriteRendererBody.enabled = true;
+
         FollowPLayer();
         if (instantiateTheCircus)
         {
@@ -53,17 +76,18 @@ public class CollieFollowPlayer : MonoBehaviour
 
     public void FollowPLayer()
     {
+        Debug.Log("FOLLOW");
 
         float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
         direction = player.transform.position - gameObject.transform.position;
 
-            rb2d.velocity = direction.normalized * speed;
+        rb2d.velocity = direction.normalized * speed;
         if (distance < closeEoughToStop)
         {
             rb2d.velocity *= 0.5f;
             //rb2d.velocity = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
         }
-        else if(distance < slowDownDistance)
+        else if (distance < slowDownDistance)
         {
             rb2d.velocity *= 0.01f;
         }
