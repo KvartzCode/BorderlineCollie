@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         headAnimator.SetFloat("Blend", moveDirection.magnitude);
         bodyAnimator.SetFloat("Blend", moveDirection.magnitude);
 
-        rb.velocity = moveDirection * moveSpeed * Time.deltaTime;
+        rb.velocity = moveDirection * moveSpeed;
     }
 
 
