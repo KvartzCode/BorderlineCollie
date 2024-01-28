@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HyenaSpawner : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour
 {
     public GameObject hyenaBushPrefab = null;
     public GameObject normalBushPrefab = null;
