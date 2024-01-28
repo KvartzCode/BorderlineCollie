@@ -19,7 +19,7 @@ public class CollieFollowPlayer : MonoBehaviour
     public bool followPlayer;
 
     Rigidbody2D rb2d;
-
+    Animator animator;
     public float closeEoughToStop;
     public float slowDownDistance;
 
@@ -29,9 +29,14 @@ public class CollieFollowPlayer : MonoBehaviour
 
 
     public bool instantiateTheCircus;
+
+    AudioSource audioSource;
+    public AudioClip[] laughingSounds;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         col = GetComponent<Collider2D>();
 
         if (player == null)
@@ -44,6 +49,7 @@ public class CollieFollowPlayer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         instantiateTheCircus = true;
         followPlayer = false;
+        InvokeRepeating(nameof(LaughInBush), Random.Range(3, 11), 11);
     }
 
     // Update is called once per frame
@@ -80,6 +86,7 @@ public class CollieFollowPlayer : MonoBehaviour
 
         float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
         direction = player.transform.position - gameObject.transform.position;
+        animator.SetFloat("Blend", 1);
 
         rb2d.velocity = direction.normalized * speed;
         if (distance < closeEoughToStop)
@@ -96,6 +103,7 @@ public class CollieFollowPlayer : MonoBehaviour
 
     private void SpawnCircus()
     {
+        CancelInvoke(nameof(LaughInBush));
 
         Vector3 randomPosition = GetRandomPositionAroundPlayer();
 
@@ -111,5 +119,17 @@ public class CollieFollowPlayer : MonoBehaviour
             randomPosition = Random.insideUnitCircle * spawnCircleArea;
 
         return randomPosition;
+    }
+
+    private void MakeSound(AudioClip[] audioClips)
+    {
+
+        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioSource.Play();
+    }
+    private void LaughInBush()
+    {
+        VisualSoundCues.Instance.MadeSound(transform.position);
+        MakeSound(laughingSounds);
     }
 }
