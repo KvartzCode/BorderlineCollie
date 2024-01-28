@@ -67,9 +67,6 @@ public class CollieFollowPlayer : MonoBehaviour
         {
             rb2d.velocity *= 0.01f;
         }
-        //else
-        //{
-        //}
 
     }
 
