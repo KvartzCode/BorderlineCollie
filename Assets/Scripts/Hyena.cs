@@ -72,7 +72,7 @@ public class Hyena : MonoBehaviour
                 {
                     rb2d.velocity = Vector2.zero;
                     state = HyenaState.Lurking;
-                    timeBetweenActions = 8;
+                    timeBetweenActions = 5;
                     actionTimer = 0;
                     bodySprite.enabled = headSprite.enabled = false;
                     collider2d.enabled = false;
@@ -84,7 +84,7 @@ public class Hyena : MonoBehaviour
 
                 transform.position = player.transform.position + randomPosition;
 
-                if (Random.Range(0, 15) + confidence >= 15)
+                if (Random.Range(0, 12) + confidence >= 12)
                 {
                     state = HyenaState.Approaching;
                     timeBetweenActions = 0.1f;
