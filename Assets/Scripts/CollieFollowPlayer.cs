@@ -13,7 +13,7 @@ public class CollieFollowPlayer : MonoBehaviour
     SpriteRenderer spriteRendererBody;
 
 
-    private float spawnCircleArea = 60;
+    public float spawnCircleArea = 60;
     private float minSpawnDistance = 1500;
 
     public bool followPlayer;
