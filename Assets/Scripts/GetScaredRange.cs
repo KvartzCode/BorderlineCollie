@@ -26,7 +26,6 @@ public class GetScaredRange : MonoBehaviour
     {
 
         lightComponent.pointLightOuterRadius = rangeToScare;
-        ScareHyenas();
 
     }
 
