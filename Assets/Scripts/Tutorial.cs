@@ -15,6 +15,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] GameObject hyenaWaypoint1;
     [SerializeField] GameObject hyenaWaypoint2;
     [SerializeField] GameObject bush;
+    [SerializeField] GameObject square;
     [SerializeField] Interactable interactable;
     [SerializeField] Camera cam;
     [SerializeField] GameObject hyena;
@@ -38,6 +39,7 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator DoTutorial()
     {
+        girl.GetComponent<PlayerMovement>().canMove = false;
 
         yield return new WaitForSeconds(1);
 
@@ -166,6 +168,7 @@ public class Tutorial : MonoBehaviour
 
         text.text = "I have to find him...";
 
+        Destroy(square.gameObject);
         girl.GetComponent<PlayerMovement>().canMove = true;
 
         yield return new WaitForSeconds(2);
@@ -270,7 +273,24 @@ public class Tutorial : MonoBehaviour
         }
         hyena.transform.position = hyenaWaypoint2.transform.position;
 
-        yield return new WaitForSeconds(1f);
+        elapsedTime = 0f;
+        lerpDuration = 2f;
+        float startAlpha = 0;
+
+        while (elapsedTime < lerpDuration)
+        {
+            float t = elapsedTime / lerpDuration;
+
+            panel.color = new Color(0, 0, 0, Mathf.Lerp(startAlpha, 1, t));
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+        panel.color = new Color(0, 0, 0, 1);
+        text.text = " ";
+
+        yield return new WaitForSeconds(0.1f);
 
         SwitchScene();
     }
