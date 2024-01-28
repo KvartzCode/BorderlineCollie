@@ -10,12 +10,12 @@ public class VisualSoundCues : MonoBehaviour
     [SerializeField] GameObject visualSound;
     [SerializeField] RectTransform canvasRect;
 
-    private float visualRadius;
+    [SerializeField] float visualRadius = 14.8f;
 
-    private void Start()
-    {
-        visualRadius = GetComponent<CircleCollider2D>().radius;
-    }
+    //private void Start()
+    //{
+    //    visualRadius = GetComponent<CircleCollider2D>().radius;
+    //}
 
     public void MadeSound(Vector3 origin)
     {
