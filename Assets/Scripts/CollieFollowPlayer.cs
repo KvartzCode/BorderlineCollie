@@ -29,6 +29,10 @@ public class CollieFollowPlayer : MonoBehaviour
 
 
     public bool instantiateTheCircus;
+
+    AudioSource audioSource;
+    public AudioClip[] laughingSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,7 @@ public class CollieFollowPlayer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         instantiateTheCircus = true;
         followPlayer = false;
+        InvokeRepeating(nameof(LaughInBush), Random.Range(3, 11), 11);
     }
 
     // Update is called once per frame
@@ -96,6 +101,7 @@ public class CollieFollowPlayer : MonoBehaviour
 
     private void SpawnCircus()
     {
+        CancelInvoke(nameof(LaughInBush));
 
         Vector3 randomPosition = GetRandomPositionAroundPlayer();
 
@@ -111,5 +117,17 @@ public class CollieFollowPlayer : MonoBehaviour
             randomPosition = Random.insideUnitCircle * spawnCircleArea;
 
         return randomPosition;
+    }
+
+    private void MakeSound(AudioClip[] audioClips)
+    {
+
+        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioSource.Play();
+    }
+    private void LaughInBush()
+    {
+        VisualSoundCues.Instance.MadeSound(transform.position);
+        MakeSound(laughingSounds);
     }
 }
