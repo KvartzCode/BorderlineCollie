@@ -133,7 +133,7 @@ public class Hyena : MonoBehaviour
         var foundHyenas = FindObjectsOfType<Hyena>();
         bodySprite.enabled = headSprite.enabled = true;
         collider2d.enabled = true;
-        MakeSound(screamSounds);
+       
 
         foreach (var hyena in foundHyenas)
         {
@@ -156,6 +156,7 @@ public class Hyena : MonoBehaviour
             timeBetweenActions = 0.5f;
             attackTimer = 10;
         }
+        MakeSound(screamSounds);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

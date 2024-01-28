@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public void GetScared()
     {
         headAnimator.SetTrigger("scared");
+        getScaredRange.ScareHyenas();      
     }
     public void GetHappy()
     {
@@ -75,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) { return; }
 
         Debug.Log("WHISTLE!");
-        getScaredRange.ScareHyenas();
     }
 
     public void OnInteract()
