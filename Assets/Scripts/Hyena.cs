@@ -40,7 +40,7 @@ public class Hyena : MonoBehaviour
         collider2d = GetComponent<Collider2D>();
         bodySprite.enabled = headSprite.enabled = false;
         collider2d.enabled = false;
-        InvokeRepeating(nameof(LaughInBush), Random.Range(3, 7), 7);
+        InvokeRepeating(nameof(LaughInBush), Random.Range(3, 11), 11);
     }
 
     void Update()
