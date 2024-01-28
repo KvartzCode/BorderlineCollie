@@ -41,7 +41,10 @@ public class BGMusic : MonoBehaviour
         {
             distance += Time.deltaTime / 100;
         }
-
+        else
+        {
+            distance = 0;
+        }
         huntedMusic.volume = distance;
         //defaultMusic.volume = 0.5f - huntedMusic.volume;
     }
