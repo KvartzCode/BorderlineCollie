@@ -42,6 +42,7 @@ public class Tutorial : MonoBehaviour
         girl.GetComponent<PlayerMovement>().canMove = false;
 
         yield return new WaitForSeconds(1);
+        girl.GetComponent<PlayerMovement>().canMove = false;
 
         audioSource.PlayOneShot(voicelines[0]);
 
