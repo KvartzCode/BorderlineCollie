@@ -5,14 +5,17 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject hyenaBushPrefab;
     public GameObject normalBushPrefab;
+    public GameObject treePrefab;
     public GameObject collieBushPrefab;
     public GameObject carouselHorsePrefab;
 
     private GameObject player;
     private int maxNumberOfHyenas = 5;
     private int maxNumberOfBushes = 2;
+    private int maxNumberOfTrees = 4;
     private List<GameObject> hyenasBushes = new();
     private List<GameObject> normalBushes = new();
+    private List<GameObject> trees = new();
     private GameObject collieBush;
     private GameObject carouselHorse;
 
@@ -25,6 +28,7 @@ public class ObjectSpawner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         SpawnHyenaBushes();
         SpawnNormalBushes();
+        SpawnTrees();
 
         SpawnCarouselHorse();
     }
@@ -33,6 +37,8 @@ public class ObjectSpawner : MonoBehaviour
     {
         MoveAllInactiveHyenasBushes();
         MoveAllNormalBushes();
+        MoveAllTrees();
+
         MoveCarouselHorse();
     }
 
@@ -57,6 +63,17 @@ public class ObjectSpawner : MonoBehaviour
 
             GameObject newHyenaBush = Instantiate(normalBushPrefab, player.transform.position + randomPosition, Quaternion.identity);
             normalBushes.Add(newHyenaBush);
+        }
+    }
+
+    private void SpawnTrees()
+    {
+        for (int i = 0; i < maxNumberOfTrees; i++)
+        {
+            Vector3 randomPosition = GetRandomPositionAroundPlayer();
+
+            GameObject newTree = Instantiate(treePrefab, player.transform.position + randomPosition, Quaternion.identity);
+            trees.Add(newTree);
         }
     }
 
@@ -95,6 +112,15 @@ public class ObjectSpawner : MonoBehaviour
         {
             if ((normalBush.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
                 MoveObject(normalBush);
+        }
+    }
+
+    private void MoveAllTrees()
+    {
+        foreach (var tree in trees)
+        {
+            if ((tree.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
+                MoveObject(tree);
         }
     }
 

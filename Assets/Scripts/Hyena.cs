@@ -115,12 +115,13 @@ public class Hyena : MonoBehaviour
     }
     private void MakeSound(AudioClip[] audioClips )
     {
-        VisualSoundCues.Instance.MadeSound(transform.position);
+        
         audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
         audioSource.Play();
     }
     private void LaughInBush()
     {
+        VisualSoundCues.Instance.MadeSound(transform.position);
         MakeSound(laughingSounds);
     }
     public void Activate()

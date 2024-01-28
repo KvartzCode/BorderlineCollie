@@ -12,12 +12,22 @@ public class CollieFollowPlayer : MonoBehaviour
 
     public bool followPlayer;
 
+    Rigidbody2D rb2d;
+
     public float closeEoughToStop;
+    public float slowDownDistance;
 
     public float speed = 10;
+
+    Vector2 direction;
+
+
+    public bool instantiateTheCircus;
     // Start is called before the first frame update
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
+        instantiateTheCircus = true;
         followPlayer = false;
     }
 
@@ -26,21 +36,36 @@ public class CollieFollowPlayer : MonoBehaviour
     {
         if (followPlayer)
         {
-            FollowPLayer();
-            SpawnCircus();
-            followPlayer = false;
+            FoundTheDog();
         }
 
     }
 
+    private void FoundTheDog()
+    {
+        FollowPLayer();
+        if (instantiateTheCircus)
+        {
+            SpawnCircus();
+            instantiateTheCircus = false;
+        }
+    }
 
     public void FollowPLayer()
     {
-        float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
 
-        if (distance > closeEoughToStop)
+        float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
+        direction = player.transform.position - gameObject.transform.position;
+
+            rb2d.velocity = direction.normalized * speed;
+        if (distance < closeEoughToStop)
         {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
+            rb2d.velocity *= 0.5f;
+            //rb2d.velocity = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+        else if(distance < slowDownDistance)
+        {
+            rb2d.velocity *= 0.01f;
         }
 
     }
