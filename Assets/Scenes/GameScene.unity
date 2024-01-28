@@ -1058,6 +1058,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553577408}
   m_CullTransparentMesh: 1
+--- !u!1 &1981683250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981683252}
+  - component: {fileID: 1981683251}
+  m_Layer: 0
+  m_Name: Spawner script holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1981683251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981683250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95a08c8c2c2b724d915a73a81394bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hyenaBushPrefab: {fileID: 8538674800410873354, guid: 68dd5efad3456024681375aa7f4e1ff9, type: 3}
+  normalBushPrefab: {fileID: 8538674800410873354, guid: b1d78b858bfd4104c82f943b23e8edc1, type: 3}
+  treePrefab: {fileID: 3870539883454249037, guid: 79b8eb3a94d72ee419dcbf80fee8efb3, type: 3}
+  collieBushPrefab: {fileID: 0}
+  carouselHorsePrefab: {fileID: 5783863902880852691, guid: 491997849eadb294d9fa528f42ebfa9f, type: 3}
+--- !u!4 &1981683252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981683250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7563758, y: -1.6678929, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020755600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,3 +1198,4 @@ SceneRoots:
   - {fileID: 681264747}
   - {fileID: 1076516488}
   - {fileID: 712433068}
+  - {fileID: 1981683252}
