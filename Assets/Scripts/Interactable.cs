@@ -12,6 +12,8 @@ public class Interactable : MonoBehaviour
     public bool canInteract = true;
     public AudioClip rustlingLeaf;
 
+    CollieFollowPlayer collie;
+
     private BuschParticleSystem bushParticles;
 
     AudioSource audioSource;
@@ -21,6 +23,9 @@ public class Interactable : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         defaultMat = sr.material;
         bushParticles = GetComponentInChildren<BuschParticleSystem>();
+
+        collie = FindAnyObjectByType<CollieFollowPlayer>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +35,8 @@ public class Interactable : MonoBehaviour
             if (!canInteract) { return; }
             SetOutline(true);
         }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -53,12 +60,17 @@ public class Interactable : MonoBehaviour
         if (!canInteract) { return; }
         audioSource.PlayOneShot(rustlingLeaf);
         SetOutline(false);
-        bushParticles.particleSystemsEnabled = true; 
+        bushParticles.particleSystemsEnabled = true;
         canInteract = false;
         sr.sortingOrder = 5;
 
         if (objectToSpawn == null) return;
-        if (objectToSpawn.GetComponent<Hyena>() != null) 
+        if (objectToSpawn == objectToSpawn.CompareTag("Collie"))
+        {
+            collie.followPlayer = true;
+        }
+        Debug.Log("kalla på collie");
+        if (objectToSpawn.GetComponent<Hyena>() != null)
             objectToSpawn.GetComponent<Hyena>().Activate();
     }
 }

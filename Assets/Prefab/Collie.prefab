@@ -240,6 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   circus: {fileID: 6534319809339058791, guid: ef4da4bc4a16eb541884ab088e5e4445, type: 3}
+  spriteRendererHead: {fileID: 0}
+  spriteRendererBody: {fileID: 0}
+  spawnCircleArea: 500
   followPlayer: 0
   closeEoughToStop: 2
   slowDownDistance: 5

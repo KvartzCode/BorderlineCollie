@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7565649330690573927}
   - component: {fileID: 3438205397659631728}
   - component: {fileID: 6636129695242676694}
+  - component: {fileID: 7149333007834895131}
   m_Layer: 0
   m_Name: Dog Bush
   m_TagString: Untagged
@@ -167,6 +168,111 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!82 &7149333007834895131
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538674800410873354}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 75
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -4.867496
+      outSlope: -4.867496
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.13204291
+      value: 0.48741692
+      inSlope: -1.1849636
+      outSlope: -1.1849636
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6809104
+      outWeight: 0.2597228
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &4923507468469808976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,17 +367,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8162505116490162546}
     m_Modifications:
+    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+      propertyPath: spriteRendererBody
+      value: 
+      objectReference: {fileID: 4735612230574910927}
+    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+      propertyPath: spriteRendererHead
+      value: 
+      objectReference: {fileID: 3002213102289047746}
     - target: {fileID: 6961579566139049275, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_Name
       value: Collie
       objectReference: {fileID: 0}
     - target: {fileID: 9065876547064030121, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 9065876547064030121, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.46
+      value: -2.01
       objectReference: {fileID: 0}
     - target: {fileID: 9065876547064030121, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_LocalPosition.z
@@ -318,5 +432,15 @@ GameObject:
 --- !u!4 &1218521854556500218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9065876547064030121, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+  m_PrefabInstance: {fileID: 7870455431895192403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3002213102289047746 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4941426725002036113, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
+  m_PrefabInstance: {fileID: 7870455431895192403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4735612230574910927 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3206914502251626140, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
   m_PrefabInstance: {fileID: 7870455431895192403}
   m_PrefabAsset: {fileID: 0}

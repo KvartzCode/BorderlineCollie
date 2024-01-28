@@ -156,8 +156,9 @@ public class Hyena : MonoBehaviour
             state = HyenaState.Retreating;
             timeBetweenActions = 0.5f;
             attackTimer = 10;
+            MakeSound(screamSounds);
         }
-        MakeSound(screamSounds);
+        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

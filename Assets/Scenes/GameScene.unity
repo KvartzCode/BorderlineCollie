@@ -175,10 +175,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2676863722228293164, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
-      propertyPath: m_Intensity
-      value: 1.48
-      objectReference: {fileID: 0}
     - target: {fileID: 7131023576276430916, guid: 0fd60e27d244bc340bd1b5d11cc1f034, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -333,90 +329,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2146795068511573254, guid: 957b714861e7f2549b1fdd3ff0d48736, type: 3}
   m_PrefabInstance: {fileID: 5368842234552133936}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1845017688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1845017690}
-  - component: {fileID: 1845017689}
-  m_Layer: 0
-  m_Name: open cage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1845017689
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845017688}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cb773aaff36e7d04ca9bfe841aba2773, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 10.24, y: 10.24}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1845017690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845017688}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 8.3, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981683250
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +361,7 @@ MonoBehaviour:
   hyenaBushPrefab: {fileID: 8538674800410873354, guid: 68dd5efad3456024681375aa7f4e1ff9, type: 3}
   normalBushPrefab: {fileID: 8538674800410873354, guid: b1d78b858bfd4104c82f943b23e8edc1, type: 3}
   treePrefab: {fileID: 3870539883454249037, guid: 79b8eb3a94d72ee419dcbf80fee8efb3, type: 3}
-  collieBushPrefab: {fileID: 0}
+  collieBushPrefab: {fileID: 8538674800410873354, guid: 14b21fb794b1096498fab4e1f1f9ce03, type: 3}
   carouselHorsePrefab: {fileID: 5783863902880852691, guid: 491997849eadb294d9fa528f42ebfa9f, type: 3}
 --- !u!4 &1981683252
 Transform:
@@ -644,6 +556,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 174089677}
+    - target: {fileID: 8356771421261845832, guid: 957b714861e7f2549b1fdd3ff0d48736, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1659887951
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -659,4 +575,3 @@ SceneRoots:
   - {fileID: 5368842234552133936}
   - {fileID: 712433068}
   - {fileID: 1981683252}
-  - {fileID: 1845017690}

@@ -29,7 +29,7 @@ public class ObjectSpawner : MonoBehaviour
         SpawnHyenaBushes();
         SpawnNormalBushes();
         SpawnTrees();
-
+        SpawnCollieBush();
         SpawnCarouselHorse();
     }
 
@@ -38,7 +38,7 @@ public class ObjectSpawner : MonoBehaviour
         MoveAllInactiveHyenasBushes();
         MoveAllNormalBushes();
         MoveAllTrees();
-
+        MoveCollieBush();
         MoveCarouselHorse();
     }
 
@@ -121,6 +121,15 @@ public class ObjectSpawner : MonoBehaviour
         {
             if ((tree.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
                 MoveObject(tree);
+        }
+    }
+
+    private void MoveCollieBush()
+    {
+        if ((collieBush.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
+        {
+            if(!collieBush.GetComponentInChildren<CollieFollowPlayer>().followPlayer)
+                MoveObject(collieBush);
         }
     }
 
