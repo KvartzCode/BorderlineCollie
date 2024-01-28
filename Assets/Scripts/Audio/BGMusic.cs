@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BGMusic : MonoBehaviour
 {
@@ -25,12 +26,8 @@ public class BGMusic : MonoBehaviour
     [SerializeField] AudioSource huntedMusic;
 
     private bool isHunted;
-    [Range(0f, 1f)]
+    [Range(0f, 0.8f)]
     public float distance;
-    private void Start()
-    {
-        // InvokeRepeating(nameof(SwitchMusic), 5, 5);
-    }
 
     private void SwitchMusic()
     {
@@ -40,8 +37,16 @@ public class BGMusic : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            distance += Time.deltaTime / 100;
+        }
+        else
+        {
+            distance = 0;
+        }
         huntedMusic.volume = distance;
-        defaultMusic.volume = 1 - huntedMusic.volume;
+        //defaultMusic.volume = 0.5f - huntedMusic.volume;
     }
 
     private IEnumerator SwapFade()
