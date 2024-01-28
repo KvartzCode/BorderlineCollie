@@ -11,10 +11,13 @@ public class Interactable : MonoBehaviour
     public GameObject objectToSpawn = null;
     public bool canInteract = true;
 
+    private BuschParticleSystem bushParticles;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         defaultMat = sr.material;
+        bushParticles = GetComponent<BuschParticleSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +49,7 @@ public class Interactable : MonoBehaviour
         if (!canInteract) { return; }
 
         SetOutline(false);
+        bushParticles.particleSystemsEnabled = true; 
         canInteract = false;
         sr.sortingOrder = 5;
 

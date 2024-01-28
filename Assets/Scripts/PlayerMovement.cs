@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator headAnimator;
     [SerializeField] Animator bodyAnimator;
 
+    GetScaredRange getScaredRange;
+
     Rigidbody2D rb;
 
     private Interactable interactable;
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public void GetScared()
     {
         headAnimator.SetTrigger("scared");
+        getScaredRange.ScareHyenas();
     }
     public void GetHappy()
     {
