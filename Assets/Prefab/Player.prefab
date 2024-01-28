@@ -532,9 +532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671cac18e29b846469dcbef31c406609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   headAnimator: {fileID: 1885230082640721968}
   bodyAnimator: {fileID: 6602300611680402303}
+  deathScreen: {fileID: 0}
   canMove: 1
 --- !u!114 &3577266080423919142
 MonoBehaviour:
