@@ -10,11 +10,14 @@ public class Interactable : MonoBehaviour
     private SpriteRenderer sr;
     public GameObject objectToSpawn = null;
     public bool canInteract = true;
+    public AudioClip rustlingLeaf;
 
     private BuschParticleSystem bushParticles;
 
+    AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         defaultMat = sr.material;
         bushParticles = GetComponentInChildren<BuschParticleSystem>();
@@ -48,7 +51,7 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         if (!canInteract) { return; }
-
+        audioSource.PlayOneShot(rustlingLeaf);
         SetOutline(false);
         bushParticles.particleSystemsEnabled = true; 
         canInteract = false;
