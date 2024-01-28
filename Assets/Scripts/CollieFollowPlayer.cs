@@ -19,7 +19,7 @@ public class CollieFollowPlayer : MonoBehaviour
     public bool followPlayer;
 
     Rigidbody2D rb2d;
-
+    Animator animator;
     public float closeEoughToStop;
     public float slowDownDistance;
 
@@ -36,6 +36,7 @@ public class CollieFollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         col = GetComponent<Collider2D>();
 
         if (player == null)
@@ -85,6 +86,7 @@ public class CollieFollowPlayer : MonoBehaviour
 
         float distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
         direction = player.transform.position - gameObject.transform.position;
+        animator.SetFloat("Blend", 1);
 
         rb2d.velocity = direction.normalized * speed;
         if (distance < closeEoughToStop)
