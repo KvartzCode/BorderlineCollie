@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -20,10 +19,16 @@ public class PlayerMovement : MonoBehaviour
     private Interactable interactable;
     Vector2 moveDirection;
 
+    public AudioClip[] whistleSounds;
+    public AudioClip[] screamSounds;
+    public AudioClip[] laughSounds;
+    AudioSource audioSource;
+
     public bool canMove = true;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         canMove = true;
         getScaredRange = GetComponent<GetScaredRange>();
         rb = GetComponent<Rigidbody2D>();
@@ -42,15 +47,24 @@ public class PlayerMovement : MonoBehaviour
             interactable = collision.GetComponent<Interactable>();
         }
     }
+    private void MakeSound(AudioClip[] audioClips)
+    {
+
+        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioSource.Play();
+    }
 
 
     public void GetScared()
     {
         headAnimator.SetTrigger("scared");
+        MakeSound(screamSounds);
     }
     public void GetHappy()
     {
         headAnimator.SetTrigger("happy");
+        MakeSound(laughSounds);
+
     }
 
     #region Input Methods
@@ -73,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnWhistle()
     {
         if (!canMove) { return; }
+        MakeSound(whistleSounds);
         getScaredRange.ScareHyenas();
         Debug.Log("WHISTLE!");
     }
@@ -93,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(canMove == true)
         {
+            MakeSound(screamSounds);
             deathScreen.SetActive(true);
             canMove = false;
         }
