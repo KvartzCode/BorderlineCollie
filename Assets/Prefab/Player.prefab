@@ -534,9 +534,12 @@ MonoBehaviour:
   headAnimator: {fileID: 1885230082640721968}
   bodyAnimator: {fileID: 6602300611680402303}
   deathScreen: {fileID: 0}
-  whistleSounds: []
-  screamSounds: []
-  laughSounds: []
+  whistleSounds:
+  - {fileID: 8300000, guid: d51c7e7034ad69843946b57dabcc4eb4, type: 3}
+  screamSounds:
+  - {fileID: 8300000, guid: 384e7437acd685547ba032b2a0c65c59, type: 3}
+  laughSounds:
+  - {fileID: 8300000, guid: 7775f48926809724e91cd96a864f819a, type: 3}
   canMove: 1
   distance: 0.1
 --- !u!114 &3577266080423919142
