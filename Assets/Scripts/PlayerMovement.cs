@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         canMove = true;
+        getScaredRange = GetComponent<GetScaredRange>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public void GetScared()
     {
         headAnimator.SetTrigger("scared");
-        getScaredRange.ScareHyenas();
+        getScaredRange.ScareHyenas();      
     }
     public void GetHappy()
     {
