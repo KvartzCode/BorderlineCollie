@@ -51,7 +51,6 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         if (!canInteract) { return; }
-
         audioSource.PlayOneShot(rustlingLeaf);
         SetOutline(false);
         bushParticles.particleSystemsEnabled = true; 

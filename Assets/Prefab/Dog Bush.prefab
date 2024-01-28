@@ -104,6 +104,7 @@ MonoBehaviour:
   outlineMat: {fileID: -876546973899608171, guid: 5b668382b8dc90447ab70c48c49a4b7a, type: 3}
   objectToSpawn: {fileID: 983198962208872040}
   canInteract: 1
+  rustlingLeaf: {fileID: 8300000, guid: 1049ee4c886a1c946a3cd4733c4ce94c, type: 3}
 --- !u!58 &3438205397659631728
 CircleCollider2D:
   m_ObjectHideFlags: 0
