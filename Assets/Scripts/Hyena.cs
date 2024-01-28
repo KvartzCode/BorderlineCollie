@@ -17,7 +17,8 @@ public class Hyena : MonoBehaviour
     public SpriteRenderer bodySprite;
     public SpriteRenderer headSprite;
     public Animator animator;
-
+    public AudioClip[] laughingSounds;
+    public AudioClip[] scaredSounds;
     private GameObject player;
     private Rigidbody2D rb2d;
     private Collider2D collider2d;
@@ -109,7 +110,13 @@ public class Hyena : MonoBehaviour
                 break;
         }
     }
-
+    private void MakeSound(AudioClip[] audioClips )
+    {
+        VisualSoundCues.Instance.MadeSound(transform.position);
+        var audio = GetComponent<AudioSource>();
+        audio.clip = audioClips[Random.Range(0, laughingSounds.Length)];
+        audio.Play();
+    }
     public void Activate()
     {
         player.GetComponent<PlayerMovement>().GetScared();
@@ -119,6 +126,7 @@ public class Hyena : MonoBehaviour
         var foundHyenas = FindObjectsOfType<Hyena>();
         bodySprite.enabled = headSprite.enabled = true;
         collider2d.enabled = true;
+        MakeSound(laughingSounds);
 
         foreach (var hyena in foundHyenas)
         {
@@ -141,6 +149,7 @@ public class Hyena : MonoBehaviour
             timeBetweenActions = 0.5f;
             attackTimer = 10;
         }
+        MakeSound(scaredSounds);
     }
 
     private void OnDestroy()
