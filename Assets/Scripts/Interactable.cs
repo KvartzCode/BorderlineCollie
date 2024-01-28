@@ -24,6 +24,7 @@ public class Interactable : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (!canInteract) { return; }
             SetOutline(true);
         }
     }

@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         canMove = true;
+        getScaredRange = GetComponent<GetScaredRange>();
         rb = GetComponent<Rigidbody2D>();
     }
 
