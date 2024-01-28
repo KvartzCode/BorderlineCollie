@@ -26,7 +26,7 @@ public class Hyena : MonoBehaviour
     private float actionTimer = 0;
     private float timeBetweenActions = 1;
 
-    private float attackTimer = 6;
+    private float attackTimer = 10;
 
     void Start()
     {
@@ -62,7 +62,7 @@ public class Hyena : MonoBehaviour
                 break;
 
             case HyenaState.Retreating:
-                rb2d.velocity = direction.normalized * -6;
+                rb2d.velocity = direction.normalized * -7;
                 animator.SetFloat("Blend", 0.8f);
                 if (direction.sqrMagnitude > 900)
                 {
@@ -80,7 +80,7 @@ public class Hyena : MonoBehaviour
 
                 transform.position = player.transform.position + randomPosition;
 
-                if (Random.Range(0, 15) + confidence >= 1)
+                if (Random.Range(0, 15) + confidence >= 15)
                 {
                     state = HyenaState.Approaching;
                     timeBetweenActions = 0.1f;
@@ -99,7 +99,7 @@ public class Hyena : MonoBehaviour
                     state = HyenaState.Attacking;
                     timeBetweenActions = 0.1f;
                     actionTimer = 0;
-                    attackTimer = 6;
+                    attackTimer = 10;
                 }
                 break;
 
@@ -133,11 +133,13 @@ public class Hyena : MonoBehaviour
 
     public void GetScared()
     {
-        if (state == HyenaState.Inactive) return;
-        confidence++;
-        state = HyenaState.Retreating;
-        timeBetweenActions = 0.5f;
-        attackTimer = 6;
+        if (state == HyenaState.Approaching || state == HyenaState.Attacking)
+        {
+            confidence++;
+            state = HyenaState.Retreating;
+            timeBetweenActions = 0.5f;
+            attackTimer = 10;
+        }
     }
 
     private void OnDestroy()
