@@ -478,28 +478,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-      propertyPath: circus
-      value: 
-      objectReference: {fileID: 6534319809339058791, guid: ef4da4bc4a16eb541884ab088e5e4445, type: 3}
-    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1941991315}
-    - target: {fileID: 6083139083035547225, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-      propertyPath: spawner
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6961579566139049275, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_Name
       value: Collie
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022085974097862456, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022085974097862456, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9065876547064030121, guid: cc7a2a797df8ce945b0401524e7bb069, type: 3}
       propertyPath: m_LocalPosition.x
