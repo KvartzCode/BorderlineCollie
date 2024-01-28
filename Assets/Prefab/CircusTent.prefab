@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4043347962198080997}
   - component: {fileID: 2347750279436768471}
   - component: {fileID: 426022127217486555}
+  - component: {fileID: 2904229009909935438}
   m_Layer: 0
   m_Name: CircusTent
   m_TagString: Untagged
@@ -114,9 +115,21 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Radius: 1.74
+--- !u!114 &2904229009909935438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534319809339058791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41e9249ee7c5474b8f9970b4d74d3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
