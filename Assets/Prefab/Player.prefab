@@ -821,6 +821,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5284107232896165162}
     m_Modifications:
+    - target: {fileID: 335314444277989284, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 335314444277989284, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 335314444277989284, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 1545935494033903123, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2
@@ -864,6 +876,94 @@ PrefabInstance:
     - target: {fileID: 2529862514557699609, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
       propertyPath: m_Name
       value: FallingLeavesParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827319781476978727, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_MinParticleSize
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005206175356959221, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005206175356959221, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: ClampVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005206175356959221, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 0.06981317
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: RotationModule.y.scalar
+      value: 0.34906584
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.separateAxes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: ClampVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: RotationModule.separateAxes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.strengthZ.scalar
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: RotationBySpeedModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: NoiseModule.rotationAmount.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206668178017117698, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: LifetimeByEmitterSpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711020460020236839, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711020460020236839, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711020460020236839, guid: c67ab49a3b43de348a8fe19c5057fa62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
