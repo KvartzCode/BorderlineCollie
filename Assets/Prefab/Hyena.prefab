@@ -53,6 +53,18 @@ MonoBehaviour:
   bodySprite: {fileID: 5170838538083117964}
   headSprite: {fileID: 2913579759239660694}
   animator: {fileID: 7054218952251163069}
+  laughingSounds:
+  - {fileID: 8300000, guid: 193d9497a7ee08549b652292864ced13, type: 3}
+  - {fileID: 8300000, guid: b46a8c4fdd28612478d2d1c1bcee0c89, type: 3}
+  - {fileID: 8300000, guid: 73dff06760912284f8177c72da9bbac9, type: 3}
+  - {fileID: 8300000, guid: 7d7db1a4972038e468ac468f1fad1d0c, type: 3}
+  - {fileID: 8300000, guid: b6b4b34b1a5ca824d94ddb7e2071e8a8, type: 3}
+  - {fileID: 8300000, guid: 69130404787717044ba9a110eaeb652a, type: 3}
+  screamSounds:
+  - {fileID: 8300000, guid: 5e365a74d29ecd54fab3580f7a68a244, type: 3}
+  scaredSounds:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &2851919629132723788
 Rigidbody2D:
   serializedVersion: 4

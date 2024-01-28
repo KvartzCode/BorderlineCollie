@@ -18,7 +18,7 @@ public class Hyena : MonoBehaviour
     public SpriteRenderer headSprite;
     public Animator animator;
     public AudioClip[] laughingSounds;
-    public AudioClip[] scaredSounds;
+    public AudioClip[] screamSounds;
     private GameObject player;
     private Rigidbody2D rb2d;
     private Collider2D collider2d;
@@ -28,9 +28,11 @@ public class Hyena : MonoBehaviour
     private float timeBetweenActions = 1;
 
     private float attackTimer = 10;
+    AudioSource audio;
 
     void Start()
-    {
+    { 
+        audio = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         getScaredRange = player.GetComponent<GetScaredRange>();
         getScaredRange.AddHyena(this);
@@ -38,6 +40,7 @@ public class Hyena : MonoBehaviour
         collider2d = GetComponent<Collider2D>();
         bodySprite.enabled = headSprite.enabled = false;
         collider2d.enabled = false;
+        InvokeRepeating(nameof(LaughInBush), Random.Range(3, 7), 7);
     }
 
     void Update()
@@ -113,12 +116,16 @@ public class Hyena : MonoBehaviour
     private void MakeSound(AudioClip[] audioClips )
     {
         VisualSoundCues.Instance.MadeSound(transform.position);
-        var audio = GetComponent<AudioSource>();
         audio.clip = audioClips[Random.Range(0, laughingSounds.Length)];
         audio.Play();
     }
+    private void LaughInBush()
+    {
+        MakeSound(laughingSounds);
+    }
     public void Activate()
     {
+        CancelInvoke(nameof(LaughInBush));
         player.GetComponent<PlayerMovement>().GetScared();
         state = HyenaState.Retreating;
         timeBetweenActions = 0.5f;
@@ -126,7 +133,7 @@ public class Hyena : MonoBehaviour
         var foundHyenas = FindObjectsOfType<Hyena>();
         bodySprite.enabled = headSprite.enabled = true;
         collider2d.enabled = true;
-        MakeSound(laughingSounds);
+        MakeSound(screamSounds);
 
         foreach (var hyena in foundHyenas)
         {
@@ -149,7 +156,14 @@ public class Hyena : MonoBehaviour
             timeBetweenActions = 0.5f;
             attackTimer = 10;
         }
-        MakeSound(scaredSounds);
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerMovement>().Die();
+            
+        }
     }
 
     private void OnDestroy()

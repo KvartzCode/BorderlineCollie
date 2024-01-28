@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -11,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Animator headAnimator;
     [SerializeField] Animator bodyAnimator;
+    [SerializeField] GameObject deathScreen;
 
     GetScaredRange getScaredRange;
 
     Rigidbody2D rb;
-
     private Interactable interactable;
     Vector2 moveDirection;
 
@@ -86,6 +87,16 @@ public class PlayerMovement : MonoBehaviour
         {
             interactable.Interact();
         }
+    }
+
+    internal void Die()
+    {
+        if(canMove == true)
+        {
+            deathScreen.SetActive(true);
+            canMove = false;
+        }
+        
     }
 
     #endregion
