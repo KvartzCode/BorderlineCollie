@@ -1,32 +1,42 @@
-    using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject hyenaBushPrefab = null;
-    public GameObject normalBushPrefab = null;
+    public GameObject hyenaBushPrefab;
+    public GameObject normalBushPrefab;
+    public GameObject collieBushPrefab;
+    public GameObject carouselHorsePrefab;
 
     private GameObject player;
     private int maxNumberOfHyenas = 5;
     private int maxNumberOfBushes = 2;
     private List<GameObject> hyenasBushes = new();
     private List<GameObject> normalBushes = new();
+    private GameObject collieBush;
+    private GameObject carouselHorse;
 
-    private float spawnCircleArea = 60;
-    private float minSpawnDistance = 1500;
+    private float spawnCircleArea = 80;
+    private float minSpawnDistance = 2000;
+    private float maxDistanceFromPlayer = 8000;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         SpawnHyenaBushes();
         SpawnNormalBushes();
+
+        SpawnCarouselHorse();
     }
 
     void Update()
     {
         MoveAllInactiveHyenasBushes();
         MoveAllNormalBushes();
+        MoveCarouselHorse();
     }
+
+    #region Spawning
 
     private void SpawnHyenaBushes()
     {
@@ -50,11 +60,28 @@ public class ObjectSpawner : MonoBehaviour
         }
     }
 
+    private void SpawnCollieBush()
+    {
+        Vector3 randomPosition = GetRandomPositionAroundPlayer();
+
+        collieBush = Instantiate(collieBushPrefab, player.transform.position + randomPosition, Quaternion.identity);
+    }
+
+    private void SpawnCarouselHorse()
+    {
+        Vector3 randomPosition = GetRandomPositionAroundPlayer();
+
+        carouselHorse = Instantiate(carouselHorsePrefab, player.transform.position + randomPosition, Quaternion.identity);
+    }
+    #endregion
+
+    #region Moving
+
     private void MoveAllInactiveHyenasBushes()
     {
         foreach (var hyenaBush in hyenasBushes)
         {
-            if((hyenaBush.transform.position - player.transform.position).sqrMagnitude > 5000)
+            if((hyenaBush.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
             {
                 if (hyenaBush.GetComponentInChildren<Hyena>().state == HyenaState.Inactive)
                     MoveObject(hyenaBush);
@@ -66,9 +93,15 @@ public class ObjectSpawner : MonoBehaviour
     {
         foreach (var normalBush in normalBushes)
         {
-            if ((normalBush.transform.position - player.transform.position).sqrMagnitude > 5000)
+            if ((normalBush.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
                 MoveObject(normalBush);
         }
+    }
+
+    private void MoveCarouselHorse()
+    {
+        if ((carouselHorse.transform.position - player.transform.position).sqrMagnitude > maxDistanceFromPlayer)
+            MoveObject(carouselHorse);
     }
 
     private void MoveObject(GameObject objectToMove)
@@ -76,7 +109,9 @@ public class ObjectSpawner : MonoBehaviour
         Vector3 randomPosition = GetRandomPositionAroundPlayer();
 
         objectToMove.transform.position = player.transform.position + randomPosition;
-    } 
+    }
+
+    #endregion
 
     private Vector3 GetRandomPositionAroundPlayer()
     {
