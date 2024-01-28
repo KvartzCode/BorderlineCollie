@@ -534,6 +534,7 @@ MonoBehaviour:
   bodyAnimator: {fileID: 6602300611680402303}
   deathScreen: {fileID: 0}
   canMove: 1
+  distance: 0.1
 --- !u!114 &3577266080423919142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,7 +630,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: be73e010b106f4c4781a03f989cf46e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -649,7 +650,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7131023576276430916}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: be73e010b106f4c4781a03f989cf46e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
